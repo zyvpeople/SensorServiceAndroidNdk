@@ -17,20 +17,20 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
 
         final SensorService sensorService = new SensorService();
-        boolean sensorAvailable = sensorService.sensorAvailable(SensorType.ACCELEROMETER);
+        boolean sensorAvailable = sensorService.sensorAvailable(SensorType.MAGNETIC_FIELD);
         tv.setText(String.valueOf(sensorAvailable));
         if (sensorAvailable) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     sensorService.startListenSensor(
-                            SensorType.ACCELEROMETER,
-                            100000,
+                            SensorType.MAGNETIC_FIELD,
+                            10000,
                             1);
                 }
             }).start();
         }
-
+//
 //        SensorManager service = (SensorManager) getSystemService(SENSOR_SERVICE);
 //        service.registerListener(
 //                new SensorEventListener() {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    }
 //                },
-//                service.getDefaultSensor(android.hardware.Sensor.TYPE_ACCELEROMETER),
+//                service.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
 //                SensorManager.SENSOR_DELAY_NORMAL);
     }
 }

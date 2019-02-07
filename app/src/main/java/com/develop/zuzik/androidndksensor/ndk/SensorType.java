@@ -5,8 +5,8 @@ package com.develop.zuzik.androidndksensor.ndk;
  * 2/1/19.
  */
 public enum SensorType {
-    ACCELEROMETER,//1
-    MAGNETIC_FIELD,//2
+    ACCELEROMETER,
+    MAGNETIC_FIELD,
     GYROSCOPE,//4
     LIGHT,//5
     PRESSURE,//6

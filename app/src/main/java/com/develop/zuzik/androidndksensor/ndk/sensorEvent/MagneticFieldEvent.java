@@ -5,5 +5,16 @@ package com.develop.zuzik.androidndksensor.ndk.sensorEvent;
  * 2/7/19.
  */
 public class MagneticFieldEvent implements SensorEvent {
-    //TODO:
+    public float x;
+    public float y;
+    public float z;
+
+    @Override
+    public String toString() {
+        return "MagneticFieldEvent{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
+    }
 }

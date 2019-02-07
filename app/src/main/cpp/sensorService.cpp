@@ -3,6 +3,7 @@
 #include "javaClass/SensorTypeJavaClass.h"
 #include "javaClass/ExceptionJavaClass.h"
 #include "sensorStrategy/AccelerometerStrategy.h"
+#include "sensorStrategy/MagneticFieldStrategy.h"
 #include <string>
 #include <android/sensor.h>
 #include <unistd.h>
@@ -15,6 +16,10 @@ int sensorTypeNameToASensorTypeOrInvalid(const char *sensorTypeName) {
     //TODO:
     if (strcmp(sensorTypeName, "ACCELEROMETER") == 0) {
         return ASENSOR_TYPE_ACCELEROMETER;
+    } else if (strcmp(sensorTypeName, "MAGNETIC_FIELD") == 0) {
+        return ASENSOR_TYPE_MAGNETIC_FIELD;
+
+
     } else if (strcmp(sensorTypeName, "LIGHT") == 0) {
         return ASENSOR_TYPE_LIGHT;
     } else {
@@ -36,6 +41,9 @@ SensorStrategy *createSensorStrategyOrNull(JNIEnv *env,
     switch (aSensorType) {
         case ASENSOR_TYPE_ACCELEROMETER: {
             return new AccelerometerStrategy(env);
+        }
+        case ASENSOR_TYPE_MAGNETIC_FIELD: {
+            return new MagneticFieldStrategy(env);
         }
         default:
             return NULL;

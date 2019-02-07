@@ -22,7 +22,9 @@ add_library( # Sets the name of the library.
         src/main/cpp/javaClass/SensorTypeJavaClass.cpp
         src/main/cpp/javaClass/ExceptionJavaClass.cpp
         src/main/cpp/javaClass/sensorEvent/AccelerometerEventJavaClass.cpp
-        src/main/cpp/sensorStrategy/AccelerometerStrategy.cpp)
+        src/main/cpp/javaClass/sensorEvent/MagneticFieldEventJavaClass.cpp
+        src/main/cpp/sensorStrategy/AccelerometerStrategy.cpp
+        src/main/cpp/sensorStrategy/MagneticFieldStrategy.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
