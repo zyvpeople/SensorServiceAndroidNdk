@@ -8,7 +8,7 @@ public enum SensorType {
     ACCELEROMETER,
     MAGNETIC_FIELD,
     GYROSCOPE,//4
-    LIGHT,//5
+    LIGHT,
     PRESSURE,//6
     PROXIMITY,//8
     GRAVITY,//9

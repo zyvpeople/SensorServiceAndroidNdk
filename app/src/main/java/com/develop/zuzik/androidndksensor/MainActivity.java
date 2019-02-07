@@ -17,35 +17,20 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
 
         final SensorService sensorService = new SensorService();
-        boolean sensorAvailable = sensorService.sensorAvailable(SensorType.MAGNETIC_FIELD);
+        final SensorType sensorType = SensorType.LIGHT;
+        final int periodInMicroseconds = 10000;
+        final boolean sensorAvailable = sensorService.sensorAvailable(sensorType);
         tv.setText(String.valueOf(sensorAvailable));
         if (sensorAvailable) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     sensorService.startListenSensor(
-                            SensorType.MAGNETIC_FIELD,
-                            10000,
+                            sensorType,
+                            periodInMicroseconds,
                             1);
                 }
             }).start();
         }
-//
-//        SensorManager service = (SensorManager) getSystemService(SENSOR_SERVICE);
-//        service.registerListener(
-//                new SensorEventListener() {
-//                    @Override
-//                    public void onSensorChanged(SensorEvent event) {
-//                        float[] v = event.values;
-//                        Log.d("aaaa", String.format("%f %f %f", v[0], v[1], v[2]));
-//                    }
-//
-//                    @Override
-//                    public void onAccuracyChanged(android.hardware.Sensor sensor, int accuracy) {
-//
-//                    }
-//                },
-//                service.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
-//                SensorManager.SENSOR_DELAY_NORMAL);
     }
 }

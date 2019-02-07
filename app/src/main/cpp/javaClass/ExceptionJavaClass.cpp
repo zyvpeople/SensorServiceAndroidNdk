@@ -7,17 +7,9 @@
 
 ExceptionJavaClass::ExceptionJavaClass(JNIEnv *env) {
     this->entityClass = env->FindClass(EXCEPTION_CLASS);
-    if (this->entityClass == NULL) {
-        //TODO: throw error
-        return;
-    }
     this->constructorMethodId = env->GetMethodID(this->entityClass,
                                                  CONSTRUCTOR_METHOD_NAME,
                                                  EXCEPTION_CONSTRUCTOR_METHOD_SIGNATURE);
-    if (this->constructorMethodId == NULL) {
-        //TODO: throw error
-        return;
-    }
 }
 
 jobject ExceptionJavaClass::constructor(JNIEnv *env,
