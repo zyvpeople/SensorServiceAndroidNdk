@@ -93,7 +93,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
                                              instance,
                                              exception,
                                              listenerId);
-        jvm->DetachCurrentThread();
         return;
     }
     SensorStrategy *sensorStrategy = createSensorStrategyOrNull(env,
@@ -105,7 +104,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
                                              instance,
                                              exception,
                                              listenerId);
-        jvm->DetachCurrentThread();
         return;
     }
     ASensorManager *sensorManager = ASensorManager_getInstance();
@@ -119,7 +117,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
                                              exception,
                                              listenerId);
         delete sensorStrategy;
-        jvm->DetachCurrentThread();
         return;
     }
     ASensorEventQueue *queue = ASensorManager_createEventQueue(
@@ -136,7 +133,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
                                              exception,
                                              listenerId);
         delete sensorStrategy;
-        jvm->DetachCurrentThread();
         return;
     }
 
@@ -151,7 +147,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
         ASensorManager_destroyEventQueue(sensorManager,
                                          queue);
         delete sensorStrategy;
-        jvm->DetachCurrentThread();
         return;
     }
     ASensorEventQueue_setEventRate(queue,
@@ -186,7 +181,6 @@ Java_com_develop_zuzik_androidndksensor_ndk_SensorService_startListenSensor(JNIE
     ASensorManager_destroyEventQueue(sensorManager,
                                      queue);
     delete sensorStrategy;
-    jvm->DetachCurrentThread();
 }
 
 //endregion
